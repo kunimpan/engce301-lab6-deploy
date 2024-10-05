@@ -3,7 +3,7 @@ var dbconfig = {
         //connectionLimit : 10,
         host: 'localhost',
         port: '3306',
-        user: 'opaspun',
+        user: 'opaspun2',
         password: '@Pun12345678',
         database: 'moviedb'
     },
@@ -11,7 +11,7 @@ var dbconfig = {
         //connectionLimit : 10,
         host: 'localhost',
         port: '3306',
-        user: 'opaspun',
+        user: 'opaspun2',
         password: '@Pun12345678',
         database: 'moviedb'
     }
