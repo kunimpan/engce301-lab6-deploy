@@ -1,7 +1,7 @@
 export async function searchMovie(search_data) {
     try {
         console.log('search_data: ' + search_data);
-        const response = await fetch('http://192.168.64.3:3001/api/movie/search?title=' + search_data);
+        const response = await fetch('https://192.168.64.3:3001/api/movie/search?title=' + search_data);
         return await response.json(); //***
         // console.log('Search Movie response: ' + await response);
     } catch (error) {
@@ -13,7 +13,7 @@ export async function getAllMovies() {
 
     try{
         //const response = await fetch('/api/users');
-         const response = await fetch('http://192.168.64.3:3001/api/movie/all');
+         const response = await fetch('https://192.168.64.3:3001/api/movie/all');
         //const response = await fetch('/api/movie/all');
         return await response.json();
     }catch(error) {
@@ -24,7 +24,7 @@ export async function getAllMovies() {
 
 export async function createMovie(data) {
     console.log(data)
-    const response = await fetch(`http://192.168.64.3:3001/api/movie/insert`, {
+    const response = await fetch(`https://192.168.64.3:3001/api/movie/insert`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -40,7 +40,7 @@ export async function createMovie(data) {
 export async function deleteMovie(delete_data) {
     try {
         console.log('delete_data: ' + delete_data);
-        const response = await fetch('http://192.168.64.3:3001/api/movie/delete?title=' + delete_data, {method:'DELETE'});
+        const response = await fetch('https://192.168.64.3:3001/api/movie/delete?title=' + delete_data, {method:'DELETE'});
         return await response.json();
     } catch (error) {
         return [];

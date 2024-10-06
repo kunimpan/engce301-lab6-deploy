@@ -1,4 +1,5 @@
 const hapi = require('@hapi/hapi');
+const fs = require('fs');
 var users = require('./users');
 const env = require('./env.js');
 const Movies = require('./respository/movie');
@@ -41,8 +42,15 @@ const init = async () => {
     const server = hapi.Server({
         port: api_port,
         host: '0.0.0.0',
+        tls: {
+            key: fs.readFileSync('key.pem'),  // ใส่ path ของไฟล์ private key ที่สร้าง
+            cert: fs.readFileSync('cert.pem')  // ใส่ path ของไฟล์ใบรับรอง (certificate)
+        },
         routes: {
-            cors: true
+            cors: {
+                origin: ['*'],
+                additionalHeaders: ['cache-control', 'x-requested-with']
+            }
         }
     });
 
